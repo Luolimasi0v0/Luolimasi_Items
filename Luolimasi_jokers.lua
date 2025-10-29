@@ -402,7 +402,7 @@ local jokers = {
     CasinoEntryCard = {
         name = localization.CasinoEntryCard.name,
         text = localization.CasinoEntryCard.text,
-        config = {num1 = 14, num2 = 28, num_count = 0, min = 1.5, max = 3.0, uncommon_flag = 0, rare_flag = 0},
+        config = {num1 = 20, num2 = 45, num_count = 0, min = 1.5, max = 3.0, uncommon_flag = 0, rare_flag = 0},
         pos = { x = 0, y = 0 },
         rarity = 3, 
         cost = 10,
