@@ -39,7 +39,7 @@ return {
         PlasmaJoker = {
             name = "等离子小丑",
             text = {
-                "平衡{C:chips}筹码{}和{C:mult}倍数{}",
+                "平衡{C:chips}筹码{}和{C:mult}倍率{}",
                 "转移的值最多为较高值的{C:attention}1/3{}"
             }
         },
