@@ -47,7 +47,7 @@ return {
             name = "负片小丑",
             text = {
                 "每回合结束时",
-                "有{C:attention}#1#/#2#{}的概率摧毁自己",
+                "有{C:green}#1#/#2#{}的概率摧毁自己",
                 "并将随机一张{C:attention}小丑牌{}变为{C:dark_edition}负片{}",
                 "{C:inactive}(每回合概率提升)"
             }

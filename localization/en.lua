@@ -48,7 +48,7 @@ return {
             name = "Negative Joker",
             text = {
                 "At the end of each turn",
-                "There is a {C:attention}#1#/#2#{} chance to destroy yourself",
+                "There is a {C:green}#1#/#2#{} chance to destroy yourself",
                 "and turn a random {C:attention}Joker card{} into {C:dark_edition}Negative{}",
                 "{C:inactive}(The probability increases each turn)"
             }
