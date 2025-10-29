@@ -481,7 +481,7 @@ local jokers = {
         end,
 
         loc_def = function(self) 
-            return { self.ability.num1, self.ability.num2, self.ability.uncommon_flag, self.ability.rare_flag }
+            return { self.ability.num1, self.ability.num2, self.ability.rare_flag, self.ability.uncommon_flag }
         end
     },
     Mod3Limit = {
