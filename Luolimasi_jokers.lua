@@ -417,7 +417,7 @@ local jokers = {
             if context.setting_blind and not self.getting_sliced and not context.blueprint then
                 self.ability.num2 = pseudorandom('CasinoEntryCard', 15, 24)
                 local random_float = pseudorandom('CasinoEntryCard') * (self.ability.max - self.ability.min) + self.ability.min
-                if self.ability.num2 * random_float > 55 then
+                if self.ability.num2 * random_float > 69 then
                     self.ability.num2 = 69
                 else
                     local num1 = self.ability.num2 * random_float
