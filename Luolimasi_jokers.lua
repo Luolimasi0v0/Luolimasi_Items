@@ -418,9 +418,9 @@ local jokers = {
                 self.ability.num2 = pseudorandom('CasinoEntryCard', 15, 24)
                 local random_float = pseudorandom('CasinoEntryCard') * (self.ability.max - self.ability.min) + self.ability.min
                 if self.ability.num2 * random_float > 55 then
-                    self.ability.num1 = 69
+                    self.ability.num2 = 69
                 else
-                    local num1 = self.ability.num1 * random_float
+                    local num1 = self.ability.num2 * random_float
                     if num1 % 1 > 0 then
                         num1 = num1 - num1 % 1
                     end
