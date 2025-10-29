@@ -1,6 +1,6 @@
 # Luolimasi_Items
 
-A Joker card mod, currently includes:
+A Balatro mod, currently includes:
 - 15 brand-new Joker cards
 
 ## Important Notes
