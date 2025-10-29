@@ -402,7 +402,7 @@ local jokers = {
     CasinoEntryCard = {
         name = localization.CasinoEntryCard.name,
         text = localization.CasinoEntryCard.text,
-        config = {num1 = 20, num2 = 45, num_count = 0, min = 1.5, max = 3.0, uncommon_flag = 0, rare_flag = 0},
+        config = {num1 = 45, num2 = 20, num_count = 0, min = 1.5, max = 3.0, uncommon_flag = 0, rare_flag = 0},
         pos = { x = 0, y = 0 },
         rarity = 3, 
         cost = 10,
@@ -415,16 +415,16 @@ local jokers = {
 
         calculate = function(self, context)
             if context.setting_blind and not self.getting_sliced and not context.blueprint then
-                self.ability.num1 = pseudorandom('CasinoEntryCard', 15, 24)
+                self.ability.num2 = pseudorandom('CasinoEntryCard', 15, 24)
                 local random_float = pseudorandom('CasinoEntryCard') * (self.ability.max - self.ability.min) + self.ability.min
-                if self.ability.num1 * random_float > 55 then
-                    self.ability.num2 = 69
+                if self.ability.num2 * random_float > 55 then
+                    self.ability.num1 = 69
                 else
                     local num2 = self.ability.num1 * random_float
-                    if num2 % 1 > 0 then
-                        num2 = num2 - num2 % 1
+                    if num1 % 1 > 0 then
+                        num1 = num1 - num1 % 1
                     end
-                    self.ability.num2 = num2
+                    self.ability.num1 = num1
                 end
                 self.ability.uncommon_flag = 0
                 self.ability.rare_flag = 0
@@ -442,7 +442,7 @@ local jokers = {
                 self.ability.num_count = sum_id
             end
             if context.cardarea == G.jokers and context.after and not self.debuff then 
-                if self.ability.num_count > self.ability.num2 and self.ability.rare_flag == 0 then
+                if self.ability.num_count > self.ability.num1 and self.ability.rare_flag == 0 then
                     if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                         local jokers_to_create = math.min(1, G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
                         G.E_MANAGER:add_event(Event({
@@ -459,7 +459,7 @@ local jokers = {
                         self.ability.rare_flag = 1
                         card_eval_status_text(context.blueprint_card or self, 'extra', nil, nil, nil, {message = localize('k_plus_joker'), colour = G.C.BLUE})
                     end
-                elseif self.ability.num_count > self.ability.num1 and self.ability.uncommon_flag == 0 then
+                elseif self.ability.num_count > self.ability.num2 and self.ability.uncommon_flag == 0 then
                     if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                         local jokers_to_create = math.min(1, G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
                         G.E_MANAGER:add_event(Event({
