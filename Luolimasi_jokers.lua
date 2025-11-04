@@ -703,15 +703,15 @@ local jokers = {
             end
             if context.end_of_round and G.GAME.blind.boss and not self.debuff and not context.blueprint and not self.ability.end_of_round_flag then
                 self.ability.end_of_round_flag = true
-                local deposit = self.ability.deposit
-                self.ability.deposit = 0
-                self.ability.chips = self.ability.chips + deposit * self.ability.increase_mult
-                self.ability.extra_value = self.ability.extra_value - deposit
-                self:set_cost()
-                if deposit % 1 > 0 then
-                    ease_dollars(deposit + 1 - deposit % 1)
+                self.ability.chips = self.ability.chips + self.ability.deposit * self.ability.increase_mult
+                self.ability.extra_value = self.ability.extra_value - self.ability.deposit
+                local deposit = self.ability.deposit / 2
+                if (deposit % 1 > 0) then
+                    deposit = deposit - deposit % 1 + 1
                 end
-                self.cost = self.cost + deposit * 2
+                self.ability.deposit = 0
+                self:set_cost()
+                ease_dollars(deposit)
                 return {
                     message = localize{ type = 'variable', key = 'a_chips', vars = { deposit * self.ability.increase_mult } },
                     colour = G.C.CHIPS
