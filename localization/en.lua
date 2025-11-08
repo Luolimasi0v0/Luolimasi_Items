@@ -137,6 +137,7 @@ return {
     v_dictionary = {
         a_xchips = "X#1# chips",
         BakaCirnojoker_weaken = "weaken to +#1# chips",
+        BakaCirnojoker_remove = "Cirno, you big baka!",
         balanced = "balanced",
         transfer = "transfer",
         transferFailed = "probability increase",

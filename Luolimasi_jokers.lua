@@ -28,6 +28,7 @@ SMODS.process_loc_text(G.localization.misc.v_dictionary, 'balanced' , v_dictiona
 SMODS.process_loc_text(G.localization.misc.v_dictionary, 'transfer' , v_dictionary.transfer)
 SMODS.process_loc_text(G.localization.misc.v_dictionary, 'transferFailed' , v_dictionary.transferFailed)
 SMODS.process_loc_text(G.localization.misc.v_dictionary, 'BakaCirnojoker_weaken' , v_dictionary.BakaCirnojoker_weaken)
+SMODS.process_loc_text(G.localization.misc.v_dictionary, 'BakaCirnojoker_remove' , v_dictionary.BakaCirnojoker_remove)
 SMODS.process_loc_text(G.localization.misc.v_dictionary, 'XchipsAndXmult' , v_dictionary.XchipsAndXmult)
 SMODS.process_loc_text(G.localization.misc.v_dictionary, 'a_deposit' , v_dictionary.a_deposit)
 SMODS.process_loc_text(G.localization.misc.v_dictionary, 'updated' , v_dictionary.updated)
@@ -165,14 +166,23 @@ local jokers = {
                     self.ability.extra.if_have_end_of_round_test = 1
                     if self.ability.extra.chips == 129 then
                         self.ability.extra.chips = 29
+                        return {
+                            message = localize { type = 'variable', key = 'BakaCirnojoker_weaken', vars = { self.ability.extra.chips } }
+                        }
                     elseif self.ability.extra.chips == 29 then
                         self.ability.extra.chips = 9
+                        return {
+                            message = localize { type = 'variable', key = 'BakaCirnojoker_weaken', vars = { self.ability.extra.chips } }
+                        }
                     else
-                        self.ability.extra.chips = 0
+                        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
+                                    func = function()
+                                            G.jokers:remove_card(self)
+                                            self:remove()
+                                            self = nil
+                                        return true; end}))
+                        return { message = localize{type = 'variable', key = 'BakaCirnojoker_remove'} }
                     end
-                    return {
-                        message = localize { type = 'variable', key = 'BakaCirnojoker_weaken', vars = { self.ability.extra.chips } }
-                    }
                 else
                     self.ability.extra.if_have_end_of_round_test = 1
                     return {

@@ -135,6 +135,7 @@ return {
     v_dictionary = {
         a_xchips = "X#1#筹码",
         BakaCirnojoker_weaken = "削弱为+#1#筹码",
+        BakaCirnojoker_remove = "笨死了，琪露诺！",
         balanced = "平衡",
         transfer = "传递",
         transferFailed = "概率提升",
